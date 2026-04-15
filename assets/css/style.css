@@ -176,7 +176,8 @@
     0 0 40px #00f;
 
   font-family: "Alex Brush", cursive;
-  /* margin: 10px 0; */
+  margin: 10px 0;
+
 }
 
 .content .subtitle {
@@ -217,59 +218,6 @@
   }
 }
 
-
-
-
-
-/* #time {
-  background-color: #FBF8F4;
-  width: 100%;
-  margin: 0 auto;
-  padding: 120px 10px;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
-
-#time .countdown {
-  display: flex;
-  justify-content: start;
-  font-family: "Montserrat", sans-serif;
-  font-size: 60px;
-}
-
-#time .text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-#time .text p {
-  font-family: "Alex Brush", cursive;
-  font-size: 50px;
-}
-
-#time .text .yes {
-  font-family: "Montserrat", sans-serif;
-  font-size: 13px;
-}
-
-#time .countdown div {
-  width: 100px;
-  padding: 24px 0;
-  border-radius: 10px;
-  text-align: center;
-}
-
-#time .countdown div span {
-  color: #4582A1;
-}
-
-#time .countdown p {
-  font-size: 12px;
-} */
 
 #time {
   background-color: #FBF8F4;
@@ -498,6 +446,7 @@
 
   font-family: "Alex Brush", cursive;
   font-size: 50px;
+  margin-bottom: 20px;
 }
 
 /* WebKit animation */
@@ -516,7 +465,49 @@
 }
 
 
+.location-section {
+  background-color: #FBF8F4;
+  text-align: center;
+  padding: 50px 20px;
+  font-family: Arial, sans-serif;
+}
 
+.location-section h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-family: "Alex Brush", cursive;
+  font-size: 50px;
+  font-weight: 100;
+  /* margin-bottom: 20px; */
+}
+
+.place {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.address {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* MAP DIZAYN */
+.map-container {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto; /* ortalayır */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+}
 
 /* #dilek {
   margin: 0 auto;
@@ -594,7 +585,7 @@
 
 .dilek .icon div {
   max-width: 400px;
-  
+
 }
 
 .dilek .icon div img {
@@ -623,28 +614,29 @@
 
 #location {
   padding: 80px 0;
-position: relative;
-  background: url("/arxa\ plan.jpg") center/cover no-repeat;
-  z-index: -10;
+  position: relative;
+  /* background: url("/arxa\ plan.jpg") center/cover no-repeat; */
+  /* z-index: -10; */
+  background-color: #FBF8F4;
 }
+
 #location::before {
   content: "";
   position: absolute;
   inset: 0;
 
-  background: linear-gradient(
-    to bottom,
-    white 0%,
-    transparent 50%,
-    transparent 50%,
-    white 100%
-  );
+  background: linear-gradient(to bottom,
+      #FBF8F4 0%,
+      transparent 100%,
+      transparent 100%,
+      #FBF8F4 200%);
 
   z-index: 2;
   pointer-events: none;
 
-  z-index: -1;
+  z-index: 0;
 }
+
 /* .location {
   display: grid;
   justify-content: center;
@@ -704,9 +696,11 @@ position: relative;
   display: grid;
   justify-content: center;
   align-items: center;
-
+  position: relative;
+  z-index: 2;
   /* gap fallback üçün */
 }
+
 
 /* GAP əvəzi */
 .location>* {
@@ -756,7 +750,7 @@ position: relative;
 .location a .img {
   background-color: #59262F;
   max-width: 400px;
-
+  padding: 1px 1px 3px 1px;
   /* responsive fix */
   width: 100%;
   margin: 0 auto;
@@ -885,8 +879,8 @@ textarea {
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  z-index: -10;
 }
+
 #mesaj::before {
   content: "";
   position: absolute;
@@ -894,25 +888,31 @@ textarea {
   max-height: 1000px;
   z-index: 2;
   pointer-events: none;
-  background: linear-gradient(to bottom, white, transparent);
+ background: linear-gradient(to bottom,
+      #FBF8F4 0%,
+      transparent 100%,
+      transparent 100%,
+      #FBF8F4 200%);
 
-  z-index: -1;
+
+  z-index: 0;
 }
+
 .love-section {
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
   padding: 50px 20px 10px 20px;
+  position: relative;
+  z-index: 2;
 }
 
-/* TITLE */
 .love-section p {
   font-family: "Alex Brush", cursive;
   font-size: 50px;
   color: #59262F;
 }
 
-/* INPUT */
 .love-section input,
 .love-section textarea {
   width: 100%;
@@ -935,7 +935,6 @@ textarea {
   border-color: #6c63ff;
 }
 
-/* BUTTON */
 .love-section button {
   width: 100%;
   padding: 12px;
@@ -962,7 +961,6 @@ textarea {
   opacity: 0.9;
 }
 
-/* CHAT BOX */
 #chatBox {
   margin-top: 30px;
   height: 350px;
@@ -971,17 +969,14 @@ textarea {
   -webkit-backdrop-filter: blur(10px);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  /* iPhone smooth scroll */
 
   border: 1px dotted #f6ede0;
   border-radius: 12px;
 
   padding: 10px;
-  /* background: #f6ede0; */
   margin-bottom: 10px;
 }
 
-/* MESSAGE */
 .msg {
   background: #ffffff;
   padding: 10px;
@@ -995,7 +990,7 @@ textarea {
   border: 1px solid #f6ede0;
 }
 
-/* NAME */
+
 .msg strong {
   display: -webkit-flex;
   display: flex;
@@ -1015,85 +1010,6 @@ textarea {
 }
 
 
-
-/* @media (max-width: 768px) {
-  #time .countdown {
-    font-size: 40px;
-  }
-
-  #time .countdown div {
-    width: 80px;
-    padding: 24px 0;
-  }
-}
-
-@media (max-width: 425px) {
-  #video .kvideos .video-in .content {
-    margin: 210px 0;
-  }
-
-  #time .text .basliq {
-    font-size: 35px;
-    font-weight: bold;
-
-
-  }
-
-  #timeline p {
-    font-size: 35px;
-    font-weight: bold;
-
-  }
-
-  #dilek .dilek .icon {
-    font-size: 35px;
-    font-weight: bold;
-  }
-
-  #dilek .dilek p {
-    font-size: 15px;
-  }
-
-
-
-  #location .location .time {
-    font-size: 35px;
-    font-weight: bold;
-  }
-
-  #location .location .text {
-    font-size: 15px;
-  }
-
-  #mesaj .love-section p {
-    font-size: 35px;
-    font-weight: bold;
-  }
-}
-
-@media (max-width: 320px) {
-  #video .kvideos .video-in .content {
-    margin: 180px 0;
-  }
-
-  .video-in .title {
-    font-size: 40px;
-  }
-
-  .video-in .subtitle {
-    font-size: 12px;
-  }
-
-  #time .countdown {
-    width: 230px;
-    font-size: 30px;
-  }
-
-  .countdown div {
-    width: 70px;
-  }
-} */
-
 @media (max-width: 768px) {
   #time .countdown {
     font-size: 40px;
@@ -1102,6 +1018,10 @@ textarea {
   #time .countdown div {
     width: 75px;
     padding: 24px 0;
+  }
+
+  .location-section .map-container iframe{
+    height: 250px;
   }
 }
 
@@ -1140,13 +1060,22 @@ textarea {
     font-size: 15px;
   }
 
+
+  .location-section h2{
+    font-size: 35px;
+    font-weight: bold;
+  }
+  .location-section .map-container iframe{
+    height: 200px;
+  }
+
   #mesaj .love-section p {
     font-size: 35px;
     font-weight: bold;
   }
 }
 
-@media (max-width: 330px) {
+@media (max-width: 345px) {
 
   /* #video .kvideos .video-in .content {
     margin: 180px 0;
