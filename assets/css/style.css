@@ -104,7 +104,6 @@
 
 
 #video {
-  max-width: 500px;
   width: 100%;
   margin: 0 auto;
 }
@@ -117,8 +116,12 @@
   position: relative;
   min-width: 100px;
   width: 100%;
-  min-height: 100px;
+  /* min-height: 100px; */
   overflow: hidden;
+  height: 100vh;
+  /* ƏSAS FIX */
+  overflow: hidden;
+  object-position: center;
 }
 
 #bg-video {
@@ -132,7 +135,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.104);
   z-index: -1;
 }
 
@@ -154,7 +157,7 @@
 
   text-align: center;
   color: white;
-  margin: 300px 0;
+  /* margin: 300px 0; */
 }
 
 .content .title {
@@ -173,11 +176,11 @@
     0 0 40px #00f;
 
   font-family: "Alex Brush", cursive;
-  margin: 10px 0;
+  /* margin: 10px 0; */
 }
 
 .content .subtitle {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   opacity: 0;
 
   -webkit-transform: translateY(50px);
@@ -196,6 +199,7 @@
 
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
+  font-weight: 500;
 }
 
 /* WebKit üçün ayrıca keyframes */
@@ -289,7 +293,8 @@
   justify-content: center;
   align-items: center;
 }
-#time .time{
+
+#time .time {
   display: flex;
 
   -webkit-justify-content: center;
@@ -299,6 +304,7 @@
   align-items: center;
   flex-direction: column;
 }
+
 /* TEXT */
 #time .text {
   display: -webkit-flex;
@@ -587,7 +593,8 @@
 }
 
 .dilek .icon div {
-  max-width: 500px;
+  max-width: 400px;
+  
 }
 
 .dilek .icon div img {
@@ -616,10 +623,28 @@
 
 #location {
   padding: 80px 0;
-
-
+position: relative;
+  background: url("/arxa\ plan.jpg") center/cover no-repeat;
+  z-index: -10;
 }
+#location::before {
+  content: "";
+  position: absolute;
+  inset: 0;
 
+  background: linear-gradient(
+    to bottom,
+    white 0%,
+    transparent 50%,
+    transparent 50%,
+    white 100%
+  );
+
+  z-index: 2;
+  pointer-events: none;
+
+  z-index: -1;
+}
 /* .location {
   display: grid;
   justify-content: center;
@@ -689,6 +714,17 @@
 }
 
 /* TITLE */
+.location .img-text {
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-align-items: center;
+  align-items: center;
+
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
 .location span {
   display: -webkit-flex;
   display: flex;
@@ -703,13 +739,21 @@
   font-size: 50px;
 }
 
+.location .img-text .img-two {
+  max-width: 100px;
+}
+
+.location .img-text .img-two img {
+  width: 100%;
+}
+
 /* LINK */
 .location a {
   width: 100%;
 }
 
 /* IMAGE */
-.location .img {
+.location a .img {
   background-color: #59262F;
   max-width: 400px;
 
@@ -840,8 +884,20 @@ textarea {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
+  z-index: -10;
 }
+#mesaj::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  max-height: 1000px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to bottom, white, transparent);
 
+  z-index: -1;
+}
 .love-section {
   max-width: 400px;
   margin: 0 auto;
@@ -853,7 +909,7 @@ textarea {
 .love-section p {
   font-family: "Alex Brush", cursive;
   font-size: 50px;
-  color: white;
+  color: #59262F;
 }
 
 /* INPUT */
@@ -1050,9 +1106,9 @@ textarea {
 }
 
 @media (max-width: 425px) {
-  #video .kvideos .video-in .content {
+  /* #video .kvideos .video-in .content {
     margin: 210px 0;
-  }
+  } */
 
   #time .text .basliq {
     font-size: 35px;
@@ -1091,8 +1147,13 @@ textarea {
 }
 
 @media (max-width: 330px) {
-  #video .kvideos .video-in .content {
+
+  /* #video .kvideos .video-in .content {
     margin: 180px 0;
+  } */
+  #video .kvideos .video-in {
+    height: 90vh;
+    /* mobil üçün bir az az */
   }
 
   .content .title {
