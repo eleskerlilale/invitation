@@ -874,7 +874,7 @@ textarea {
 } */
 
 #mesaj {
-  background-image: url("/arxaplan.jpg");
+  background-image: url("../image/arxaplan.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
