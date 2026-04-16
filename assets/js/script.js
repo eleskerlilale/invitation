@@ -225,3 +225,31 @@ onSnapshot(q, (snapshot) => {
 
   chatBox.scrollTop = chatBox.scrollHeight;
 });
+
+
+
+const music = document.getElementById("bg-music");
+const btn = document.getElementById("sound-btn");
+
+let playing = false;
+
+// 🔊 səhifə açılan kimi başlat (əgər icazə varsa)
+window.addEventListener("load", () => {
+    if(localStorage.getItem("musicAllowed")){
+        music.play().then(()=>{
+            playing = true;
+        }).catch(()=>{});
+    }
+});
+
+// 🔘 düymə ilə idarə
+btn.addEventListener("click", () => {
+    if(playing){
+        music.pause();
+        btn.innerHTML = "🔇";
+    }else{
+        music.play();
+        btn.innerHTML = "🔊";
+    }
+    playing = !playing;
+});

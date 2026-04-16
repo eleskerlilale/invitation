@@ -1,202 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Invitation</title>
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            font-family: sans-serif;
+            background: rgb(255, 255, 255);
+        }
+
+        .intro {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* filter: brightness(0.7); */
+        }
+
+        /* overlay text */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            transition: opacity 0.6s ease;
+            /* ƏSAS FIX */
+        }
+
+        .overlay h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            animation: fade 2s infinite;
+        }
+
+        .overlay p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        /* fade animasiya */
+        @keyframes fade {
+            0% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.4;
+            }
+        }
+
+        /* keçid effekti */
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- <div class="text top-down">salam</div>
-    <div class="trxt left-right">Soldan sağa</div>
-    <div class="text fade">Solma effekti</div>
-    <div class="text blur">Bulanıqdan net</div>
-    <video autoplay muted loop id="bg-video">
-        <source src="video.mp4" type="video/mp4">
-    </video>
-    <div class="content">
-    </div> -->
 
-    <section id="video">
-        <!-- <div class="container"> -->
-        <div class="kvideos">
-            <div class="video-in">
-                <video autoplay muted loop id="bg-video">
-                    <source src="video2.mp4" type="video/mp4">
-                </video>
-                <div class="overlay"></div>
-                <div class="content">
+    <div class="intro">
 
-                    <p class="subtitle">Biz Evlənirik</p>
-                    <h1 class="title">Bağdaqıl & Gülbadan</h1>
-                    <p class="subtitle">Çərşənbə axşamı, İyulun 3, 2026</p>
-                </div>
-            </div>
+        <video id="introVideo" playsinline webkit-playsinline>
+            <source src="mektub.mp4" type="video/mp4">
+        </video>
+
+        <div class="overlay">
+            <h1>Məktub açılır...</h1>
+            <p>Klik et</p>
         </div>
-        <!-- </div> -->
-    </section>
 
-    <section id="time">
-        <div class="container">
-            <div class="time">
-                <div class="text">
-                    <div class="img">
-                        <img src="./gul.png" alt="">
-                    </div>
-                    <p class="basliq">Geri sayım</p>
-                    <p class="yes">01.06.2026</p>
-                </div>
-                <div class="countdown">
-                    <div><span id="days"></span>
-                        <p>Gün</p>
-                    </div>
-                    <div><span id="hours"></span>
-                        <p>Saat</p>
-                    </div>
-                    <div><span id="minutes"></span>
-                        <p>Dəq</p>
-                    </div>
-                    <div><span id="seconds"></span>
-                        <p>San</p>
-                    </div>
-                </div>
+    </div>
 
-            </div>
-        </div>
-        </div>
-    </section>
+    <script>
+        const video = document.getElementById("introVideo");
+        const overlay = document.querySelector(".overlay");
 
-    <section id="timeline">
-        <div class="container">
-            <div class="timeline">
-                <div>
-                    <div class="img">
-                        <img src="./bird.png" alt="">
-                    </div>
-                    <p>Günün Proqramı</p>
-                </div>
-                <div class="item" style="--i:1">
-                    <span class="time">18:00</span>
-                    <span class="icon">🔥</span>
-                    <span class="text">Başlanğıc</span>
-                </div>
+        // kliklə video başlasın
+        overlay.addEventListener("click", () => {
+            video.play();
 
-                <div class="item" style="--i:2">
-                    <span class="time">18:30</span>
-                    <span class="icon">🚀</span>
-                    <span class="text">Orta hissə</span>
-                </div>
+            // 🔊 audio icazəsi (iOS üçün kritik)
+            const audio = new Audio("music.mp3");
+            audio.play().then(() => {
+                audio.pause();                 // səsi dərhal dayandır
+                localStorage.setItem("musicAllowed", "true");
+            }).catch(() => { });
 
-                <div class="item" style="--i:3">
-                    <span class="time">19:00</span>
-                    <span class="icon">🎯</span>
-                    <span class="text">Son</span>
-                </div>
-                <div class="item" style="--i:4">
-                    <span class="time">18:30</span>
-                    <span class="icon">🚀</span>
-                    <span class="text">Orta hissə</span>
-                </div>
-                <div class="item" style="--i:5">
-                    <span class="time">18:30</span>
-                    <span class="icon">🚀</span>
-                    <span class="text">Orta hissə</span>
-                </div>
-                <div class="item" style="--i:6">
-                    <span class="time">18:30</span>
-                    <span class="icon">🚀</span>
-                    <span class="text">Orta hissə</span>
-                </div>
+            // overlay gizlə
+            overlay.style.opacity = "0";
+            setTimeout(() => overlay.style.display = "none", 600);
+        });
 
-            </div>
-        </div>
-    </section>
+        // const audio = new Audio("music.mp3");
+        // audio.play().then(() => {
+        //     localStorage.setItem("musicAllowed", "true");
+        // }).catch(() => { });
+        // video.muted = true;
+        // video.play();
 
-    <section id="dilek">
-        <div class="container">
-            <div class="dilek">
-                <div class="icon">
-                    <div class="img"><img src="./gul3.png" alt=""></div>
-                    <!-- <p>Ürək Sözləri</p> -->
-                </div>
-                <p>Böyük məmnuniyyət hissi ilə sizi, toy günümüzün sevincini bizimlə bölüşməyə dəvət edirik.</p>
-            </div>
-        </div>
-    </section>
-    <section id="dilek" style="background-color: white;">
-        <div class="container">
-            <div class="dilek">
-                <div class="icon">
-                    <p>Dress Code</p>
-                    <div class="img"><img src="./dress2.jpeg" alt=""></div>
+        // overlay.style.display = "none";
+        // video bitəndə keçid
+        video.addEventListener("ended", () => {
+            document.body.classList.add("fade-out");
 
-                </div>
+            setTimeout(() => {
+                window.location.href = "main.html";
+            }, 1000);
+        });
+    </script>
 
-            </div>
-        </div>
-    </section>
-    <!-- <section id="location">
-        <div class="container">
-            <div class="location">
-                <div class="img-text">
-                    <span class="time">Konum</span>
-                    <div class="img-two"><img src="./qus.png" alt=""></div>
-                </div>
-
-
-                <a href="https://www.google.com/maps?q=40.4093,49.8671" target="_blank">
-                    <div class="img">
-                        <img src="xerite.jpg" class="map-img">
-                    </div>
-
-                </a>
-
-                <span class="text">Bakı, Nizami küçəsi</span>
-            </div>
-        </div>
-    </section> -->
-    <section class="location-section">
-        <h2 >Məkan</h2>
-        <p class="place">Sunset Hall</p>
-        <p class="address">Bakı şəhəri, Nizami küçəsi 123</p>
-
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps?q=40.4093,49.8671&output=embed" loading="lazy">
-            </iframe>
-        </div>
-    </section>
-    <section id="mesaj">
-        <div class="container">
-            <div class="love-section">
-                <p>Ürək sözləri</p>
-                <input type="text" id="nameInput" placeholder="Adınız">
-                <textarea id="msgInput" placeholder="Ürək sözünüz..."></textarea>
-                <button onclick="sendMessage()">Göndər</button>
-                <div id="chatBox"></div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- <div id="chatContainer">
-
-        
-
-        <input id="nameInput" placeholder="Adın...">
-        <input id="msgInput" placeholder="Mesaj yaz...">
-        <div id="chatBox"></div>
-        <button onclick="sendMessage()">Göndər</button>
-
-    </div> -->
-    <script type="module" src="./assets/js/script.js"></script>
 </body>
 
 </html>

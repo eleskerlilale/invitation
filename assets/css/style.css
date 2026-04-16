@@ -14,6 +14,20 @@
   padding: 0 0px;
 }
 
+
+#sound-btn{
+    position: fixed;
+    right: 20px;
+    top: 80%;
+    transform: translateY(-50%);
+    background: #59262F;
+    color: #fff;
+    padding: 12px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+}
+
 /* #video {
   max-width: 500px;
   width: 100%;
@@ -164,6 +178,15 @@
   font-size: 50px;
   opacity: 0;
 
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-justify-content: center;
+  justify-content: center;
+
+  -webkit-align-items: center;
+  align-items: center;
+
   -webkit-transform: translateY(50px);
   transform: translateY(50px);
 
@@ -177,7 +200,12 @@
 
   font-family: "Alex Brush", cursive;
   margin: 10px 0;
-
+}
+.content .title h1{
+  color: white;
+  font-family: "Alex Brush", cursive;
+  font-size: 60px;
+  font-weight: bold;
 }
 
 .content .subtitle {
@@ -998,7 +1026,7 @@ textarea {
   -webkit-align-items: flex-end;
   align-items: flex-end;
 
-  color: #7a7a7a;
+  color: #4b4b4b;
   margin-bottom: 3px;
   font-weight: 100;
   font-size: 14px;
@@ -1006,11 +1034,24 @@ textarea {
 
 .msg .name {
   font-size: 17px;
+  font-weight: bold;
   color: #a43e51;
 }
 
 
 @media (max-width: 768px) {
+  .content .title {
+  -webkit-justify-content: center;
+  justify-content: center;
+
+  -webkit-flex-direction: column;
+  flex-direction: column;
+
+  margin: 10px 0;
+}
+.content .title h1{
+  font-size: 45px;
+}
   #time .countdown {
     font-size: 40px;
   }
@@ -1075,7 +1116,7 @@ textarea {
   }
 }
 
-@media (max-width: 345px) {
+@media (max-width: 350px) {
 
   /* #video .kvideos .video-in .content {
     margin: 180px 0;
@@ -1106,4 +1147,13 @@ textarea {
   #time .countdown div {
     width: 70px;
   }
+  #timeline .timeline div p{
+    font-size: 30px;
+  }
 }
+@media (max-width: 350px) {
+
+ 
+  #video .kvideos .video-in {
+    height: 80vh;
+  }}
